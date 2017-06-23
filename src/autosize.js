@@ -196,7 +196,7 @@ function assign(ta) {
 	// IE9 does not fire onpropertychange or oninput for deletions,
 	// so binding to onkeyup to catch most of those events.
 	// There is no way that I know of to detect something like 'cut' in IE9.
-	if ('onpropertychange' in ta && 'oninput' in ta) {
+	if (!('onpropertychange' in ta && 'oninput' in ta)) {
 		ta.addEventListener('keyup', update, false);
 	}
 
